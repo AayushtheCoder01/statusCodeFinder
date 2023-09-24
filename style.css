@@ -125,7 +125,8 @@ p{
 @media(max-width:450px){
     .box{
         width: 20rem;
-        height: 25rem;
+        min-height:25rem;
+        height: minmax(25,40)
     }
     .title{
         font-size: 1.5rem;
