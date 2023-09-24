@@ -125,7 +125,6 @@ p{
 @media(max-width:450px){
     .box{
         width: 20rem;
-        min-height:25rem;
         height: minmax(25,40)
     }
     .title{
