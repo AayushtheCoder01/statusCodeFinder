@@ -34,7 +34,7 @@ let httpStatusCodes = {
     "err409": "The request could not be completed due to a conflict with the current state of the target resource.",
     "err410": "The requested resource is no longer available at the server and no forwarding address is known.",
     "err411": "The server requires the client to provide a valid Content-Length header in the request.",
-    "err412": "The precondition given in one or more of the request headers evaluated to false when it was tested on the server.",
+    "err412": "The precondition given in one or more of the request headers evaluated to true when it was tested on the server.",
     "err413": "The server will not accept the request, as it exceeds the defined request size limits.",
     "err414": "The server will not accept the request, as the URI provided in the request header is too long.",
     "err415": "The server will not accept the request's media format, as it is not supported.",
@@ -64,265 +64,350 @@ let httpStatusCodes = {
     "err511": "Indicates that the client needs to authenticate to gain network access.",
 };
 
+window.addEventListener("keypress", function(e) {
+    if (e.key === "Enter") {
+        get_info();
+    }
+})
+
         function get_info(){
+            f = false;
             let input = document.querySelector(".input").value;
             if (input === "100" || input === "status100") {
                 var output = document.querySelector("p");
-                output.innerText= httpStatusCodes.err100;
+                output.innerText = httpStatusCodes.err100;
+                return f = true;
             }
-            else{
+            if (input === "101" || input === "status101") {
                 var output = document.querySelector("p");
-                    output.innerText= "Invalid Code"
+                output.innerText = httpStatusCodes.err101;
+                return f = true;
             }
-                if (input === "101" || input === "status101") {
-                    var output = document.querySelector("p");
-                    output.innerText= httpStatusCodes.err101
-                }
-                if (input === "102" || input === "status102") {
-                    var output = document.querySelector("p");
-                    output.innerText= httpStatusCodes.err102
-                }
-                if (input === "103" || input === "status103") {
-                    var output = document.querySelector("p");
-                    output.innerText= httpStatusCodes.err103
-                }
-                // 200-300
-                if (input === "200" || input === "status200") {
-                    var output = document.querySelector("p");
-                    output.innerText= httpStatusCodes.err200
-                }
-                if (input === "201" || input === "status201") {
-                    var output = document.querySelector("p");
-                    output.innerText= httpStatusCodes.err201
-                }
-                if (input === "202" || input === "status202") {
-                    var output = document.querySelector("p");
-                    output.innerText= httpStatusCodes.err202
-                }
-                if (input === "203" || input === "status203") {
-                    var output = document.querySelector("p");
-                    output.innerText= httpStatusCodes.err203
-                }
-                if (input === "204" || input === "status204") {
-                    var output = document.querySelector("p");
-                    output.innerText= httpStatusCodes.err204
-                }
-                if (input === "205" || input === "status205") {
-                    var output = document.querySelector("p");
-                    output.innerText= httpStatusCodes.err205
-                }
-                if (input === "206" || input === "status206") {
-                    var output = document.querySelector("p");
-                    output.innerText= httpStatusCodes.err206
-                }
-                if (input === "207" || input === "status207") {
-                    var output = document.querySelector("p");
-                    output.innerText= httpStatusCodes.err207
-                }
-                if (input === "208" || input === "status208") {
-                    var output = document.querySelector("p");
-                    output.innerText= httpStatusCodes.err208
-                }
-                if (input === "226" || input === "status226") {
-                    var output = document.querySelector("p");
-                    output.innerText= httpStatusCodes.err226
-                }
-                //300-400
-                if (input === "300" || input === "status300") {
-                    var output = document.querySelector("p");
-                    output.innerText= httpStatusCodes.err300
-                }
-                if (input === "301" || input === "status301") {
-                    var output = document.querySelector("p");
-                    output.innerText= httpStatusCodes.err301
-                }
-                if (input === "302" || input === "status302") {
-                    var output = document.querySelector("p");
-                    output.innerText= httpStatusCodes.err302
-                }
-                if (input === "303" || input === "status303") {
-                    var output = document.querySelector("p");
-                    output.innerText= httpStatusCodes.err303
-                }
-                if (input === "304" || input === "status304") {
-                    var output = document.querySelector("p");
-                    output.innerText= httpStatusCodes.err304
-                }
-                if (input === "305" || input === "status305") {
-                    var output = document.querySelector("p");
-                    output.innerText= httpStatusCodes.err305
-                }
-                if (input === "306" || input === "status306") {
-                    var output = document.querySelector("p");
-                    output.innerText= httpStatusCodes.err306
-                }
-                if (input === "307" || input === "status307") {
-                    var output = document.querySelector("p");
-                    output.innerText= httpStatusCodes.err307
-                }
-                //400-500
-                if (input === "400" || input === "status400") {
-                    var output = document.querySelector("p");
-                    output.innerText= httpStatusCodes.err400
-                }
-                if (input === "401" || input === "status401") {
-                    var output = document.querySelector("p");
-                    output.innerText= httpStatusCodes.err401
-                }
-                if (input === "402" || input === "status402") {
-                    var output = document.querySelector("p");
-                    output.innerText= httpStatusCodes.err402
-                }
-                if (input === "403" || input === "status403") {
-                    var output = document.querySelector("p");
-                    output.innerText= httpStatusCodes.err403
-                }
-                if (input === "404" || input === "status404") {
-                    var output = document.querySelector("p");
-                    output.innerText= httpStatusCodes.err404
-                }
-                if (input === "405" || input === "status405") {
-                    var output = document.querySelector("p");
-                    output.innerText= httpStatusCodes.err405
-                }
-                if (input === "406" || input === "status406") {
-                    var output = document.querySelector("p");
-                    output.innerText= httpStatusCodes.err406
-                }
-                if (input === "407" || input === "status407") {
-                    var output = document.querySelector("p");
-                    output.innerText= httpStatusCodes.err407
-                }
+            if (input === "102" || input === "status102") {
+                var output = document.querySelector("p");
+                output.innerText = httpStatusCodes.err102;
+                return f = true;
+            }
+            if (input === "103" || input === "status103") {
+                var output = document.querySelector("p");
+                output.innerText = httpStatusCodes.err103;
+                return f = true;
+            }
+            // 200-300
+            if (input === "200" || input === "status200") {
+                var output = document.querySelector("p");
+                output.innerText = httpStatusCodes.err200;
+                return f = true;
+            }
+            if (input === "201" || input === "status201") {
+                var output = document.querySelector("p");
+                output.innerText = httpStatusCodes.err201;
+                return f = true;
+            }
+            if (input === "202" || input === "status202") {
+                var output = document.querySelector("p");
+                output.innerText = httpStatusCodes.err202;
+                return f = true;
+            }
+            if (input === "203" || input === "status203") {
+                var output = document.querySelector("p");
+                output.innerText = httpStatusCodes.err203;
+                return f = true;
+            }
+            if (input === "204" || input === "status204") {
+                var output = document.querySelector("p");
+                output.innerText = httpStatusCodes.err204;
+                return f = true;
+            }
+            if (input === "205" || input === "status205") {
+                var output = document.querySelector("p");
+                output.innerText = httpStatusCodes.err205;
+                return f = true;
+            }
+            if (input === "206" || input === "status206") {
+                var output = document.querySelector("p");
+                output.innerText = httpStatusCodes.err206;
+                return f = true;
+            }
+            if (input === "207" || input === "status207") {
+                var output = document.querySelector("p");
+                output.innerText = httpStatusCodes.err207;
+                return f = true;
+            }
+            if (input === "208" || input === "status208") {
+                var output = document.querySelector("p");
+                output.innerText = httpStatusCodes.err208;
+                return f = true;
+            }
+            if (input === "226" || input === "status226") {
+                var output = document.querySelector("p");
+                output.innerText = httpStatusCodes.err226;
+                return f = true;
+            }
+            // 300-400
+            if (input === "300" || input === "status300") {
+                var output = document.querySelector("p");
+                output.innerText = httpStatusCodes.err300;
+                return f = true;
+            }
+            if (input === "301" || input === "status301") {
+                var output = document.querySelector("p");
+                output.innerText = httpStatusCodes.err301;
+                return f = true;
+            }
+            if (input === "302" || input === "status302") {
+                var output = document.querySelector("p");
+                output.innerText = httpStatusCodes.err302;
+                return f = true;
+            }
+            if (input === "303" || input === "status303") {
+                var output = document.querySelector("p");
+                output.innerText = httpStatusCodes.err303;
+                return f = true;
+            }
+            if (input === "304" || input === "status304") {
+                var output = document.querySelector("p");
+                output.innerText = httpStatusCodes.err304;
+                return f = true;
+            }
+            if (input === "305" || input === "status305") {
+                var output = document.querySelector("p");
+                output.innerText = httpStatusCodes.err305;
+                return f = true;
+            }
+            if (input === "306" || input === "status306") {
+                var output = document.querySelector("p");
+                output.innerText = httpStatusCodes.err306;
+                return f = true;
+            }
+            if (input === "307" || input === "status307") {
+                var output = document.querySelector("p");
+                output.innerText = httpStatusCodes.err307;
+                return f = true;
+            }
+            // 400-500
+            if (input === "400" || input === "status400") {
+                var output = document.querySelector("p");
+                output.innerText = httpStatusCodes.err400;
+                return f = true;
+            }
+            if (input === "401" || input === "status401") {
+                var output = document.querySelector("p");
+                output.innerText = httpStatusCodes.err401;
+                return f = true;
+            }
+            if (input === "402" || input === "status402") {
+                var output = document.querySelector("p");
+                output.innerText = httpStatusCodes.err402;
+                return f = true;
+            }
+            if (input === "403" || input === "status403") {
+                var output = document.querySelector("p");
+                output.innerText = httpStatusCodes.err403;
+                return f = true;
+            }
+            if (input === "404" || input === "status404") {
+                var output = document.querySelector("p");
+                output.innerText = httpStatusCodes.err404;
+                return f = true;
+            }
+            if (input === "405" || input === "status405") {
+                var output = document.querySelector("p");
+                output.innerText = httpStatusCodes.err405;
+                return f = true;
+            }
+            if (input === "406" || input === "status406") {
+                var output = document.querySelector("p");
+                output.innerText = httpStatusCodes.err406;
+                return f = true;
+            }
+            if (input === "407" || input === "status407") {
+                var output = document.querySelector("p");
+                output.innerText = httpStatusCodes.err407;
+                return f = true;
+            }
                 //
                 if (input === "408" || input === "status408") {
                     var output = document.querySelector("p");
                     output.innerText= httpStatusCodes.err408
+                    return f = true;
                 }
                 if (input === "409" || input === "status409") {
                     var output = document.querySelector("p");
                     output.innerText= httpStatusCodes.err409
+                    return f = true;
                 }
                 if (input === "410" || input === "status410") {
                     var output = document.querySelector("p");
                     output.innerText= httpStatusCodes.err410
+                    return f = true;
                 }
                 if (input === "411" || input === "status411") {
                     var output = document.querySelector("p");
                     output.innerText= httpStatusCodes.err411
+                    return f = true;
                 }
                 if (input === "412" || input === "status412") {
                     var output = document.querySelector("p");
                     output.innerText= httpStatusCodes.err412
+                    return f = true;
                 }
                 if (input === "413" || input === "status413") {
                     var output = document.querySelector("p");
                     output.innerText= httpStatusCodes.err413
+                    return f = true;
                 }
                 //
                 if (input === "414" || input === "status414") {
                     var output = document.querySelector("p");
                     output.innerText= httpStatusCodes.err414
+                    return f = true;
                 }
                 if (input === "415" || input === "status415") {
                     var output = document.querySelector("p");
                     output.innerText= httpStatusCodes.err415
+                    return f = true;
                 }
                 if (input === "416" || input === "status416") {
                     var output = document.querySelector("p");
                     output.innerText= httpStatusCodes.err416
+                    return f = true;
                 }
                 if (input === "417" || input === "status417") {
                     var output = document.querySelector("p");
                     output.innerText= httpStatusCodes.err417
+                    return f = true;
                 }
                 if (input === "418" || input === "status418") {
                     var output = document.querySelector("p");
                     output.innerText= httpStatusCodes.err418
+                    return f = true;
                 }
                 if (input === "421" || input === "status421") {
                     var output = document.querySelector("p");
                     output.innerText= httpStatusCodes.err421
+                    return f = true;
                 }
                 if (input === "422" || input === "status422") {
                     var output = document.querySelector("p");
                     output.innerText= httpStatusCodes.err422
+                    return f = true;
                 }
                 if (input === "423" || input === "status423") {
                     var output = document.querySelector("p");
                     output.innerText= httpStatusCodes.err423
+                    return f = true;
                 }
                 if (input === "424" || input === "status424") {
                     var output = document.querySelector("p");
                     output.innerText= httpStatusCodes.err424
+                    return f = true;
                 }
                 if (input === "425" || input === "status425") {
                     var output = document.querySelector("p");
                     output.innerText= httpStatusCodes.err425
+                    return f = true;
                 }
                 if (input === "426" || input === "status426") {
                     var output = document.querySelector("p");
                     output.innerText= httpStatusCodes.err426
+                    return f = true;
                 }
                 if (input === "428" || input === "status428") {
                     var output = document.querySelector("p");
                     output.innerText= httpStatusCodes.err428
+                    return f = true;
                 }
                 //
                 if (input === "429" || input === "status429") {
                     var output = document.querySelector("p");
                     output.innerText= httpStatusCodes.err429
+                    return f = true;
                 }
                 if (input === "431" || input === "status431") {
                     var output = document.querySelector("p");
                     output.innerText= httpStatusCodes.err431
+                    return f = true;
                 }
                 if (input === "451" || input === "status451") {
                     var output = document.querySelector("p");
                     output.innerText= httpStatusCodes.err451
+                    return f = true;
                 }
                 // 500-600
                 if (input === "500" || input === "status500") {
                     var output = document.querySelector("p");
                     output.innerText= httpStatusCodes.err500
+                    return f = true;
                 }
                 if (input === "501" || input === "status501") {
                     var output = document.querySelector("p");
                     output.innerText= httpStatusCodes.err501
+                    return f = true;
                 }
                 if (input === "502" || input === "status502") {
                     var output = document.querySelector("p");
                     output.innerText= httpStatusCodes.err502
+                    return f = true;
                 }
                 if (input === "503" || input === "status503") {
                     var output = document.querySelector("p");
                     output.innerText= httpStatusCodes.err503
+                    return f = true;
                 }
                 if (input === "504" || input === "status504") {
                     var output = document.querySelector("p");
                     output.innerText= httpStatusCodes.err504
+                    return f = true;
                 }
                 if (input === "505" || input === "status505") {
                     var output = document.querySelector("p");
                     output.innerText= httpStatusCodes.err505
+                    return f = true;
                 }
                 if (input === "506" || input === "status506") {
                     var output = document.querySelector("p");
                     output.innerText= httpStatusCodes.err506
+                    return f = true;
                 }
                 if (input === "507" || input === "status507") {
                     var output = document.querySelector("p");
                     output.innerText= httpStatusCodes.err507
+                    return f = true;
                 }
                 if (input === "508" || input === "status508") {
                     var output = document.querySelector("p");
                     output.innerText= httpStatusCodes.err508
+                    return f = true;
                 }
                 if (input === "510" || input === "status510") {
                     var output = document.querySelector("p");
                     output.innerText= httpStatusCodes.err510
+                    return f = true;
                 }
                 if (input === "511" || input === "status511") {
                     var output = document.querySelector("p");
                     output.innerText= httpStatusCodes.err511
+                    return f = true;
                 } 
+                check_for_inavlid()
+         }
+
+         function check_for_inavlid() {
+            var output = document.querySelector("p");
+            output.innerText="Invalid Code"
+            if (f===false){
+                var element = document.querySelector(".box-animation");
+                element.classList.add("box-shake");
+                set_time()
+                function set_time() {
+                    setTimeout(remove_class_from_box, 200);
+                }
+                function remove_class_from_box() {
+                var element = document.querySelector(".box-animation");
+                element.classList.remove("box-shake");
+                }
+            } else{
+                console.log("process finished")
+            }
          }
