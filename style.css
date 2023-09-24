@@ -17,6 +17,7 @@ body{
     align-items: center;
     font-size: 2.5rem;
     background-color: rgb(1, 1, 24);
+    background-image: linear-gradient(to top left, black,rgba(9, 6, 63, 0.995));
     color: white;
 }
 span{
@@ -25,13 +26,16 @@ span{
 .navbar{
     display: flex;
     align-items: center;
-    padding-left: 2rem;
+    padding-left: 3rem;
     background-color: rgb(1, 22, 40);
     color: white;
 }
 li{
     display: inline;
     padding-right: 3rem;
+    font-size: .8rem;
+    text-decoration:none;
+    transition: all .5s ease-in;
 }
 .main{
     margin-top: 2rem;
@@ -82,7 +86,8 @@ li{
 }
 .submit:hover{
     box-shadow: 0px 1px 7px rgb(33, 184, 83);
-    background-image: linear-gradient(to bottom right, rgb(33, 184, 83), rgba(24, 156, 68, 0.819));
+    text-shadow: 0px 1px 5px rgba(6, 119, 44, 0.896);
+    background-image: linear-gradient(to bottom right, rgb(33, 184, 83), rgba(16, 136, 56, 0.741));
 }
 .box:hover{
     box-shadow: 0px 1px 4px rgba(43, 18, 124, 0.518);
@@ -142,3 +147,20 @@ p{
         padding-bottom: 1rem;
     }
 }
+@media(max-width:320px){
+    .box{
+        width: 15rem;
+    }
+}
+.box-shake{
+    animation: shake 0.2s;
+    animation-iteration-count: 2;
+  }
+  
+@keyframes shake {
+    0% { transform: translateX(0) }
+    25% { transform: translateX(10px) }
+    50% { transform: translateX(-10px) }
+    75% { transform: translateX(10px) }
+    100% { transform: translateX(0) }
+  }
