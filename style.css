@@ -5,11 +5,13 @@
 body{
     height: auto;
 }
+
 .header{
     display: grid;
     grid-template-rows: 80% 20%;
     height: 20vh;
     font-family: 'Martian Mono', monospace;
+    margin-bottom: 2.5rem;
 }
 .title{
     display: flex;
@@ -19,6 +21,9 @@ body{
     background-color: rgb(1, 1, 24);
     background-image: linear-gradient(to top left, black,rgba(9, 6, 63, 0.995));
     color: white;
+    width: 100%;
+    position: fixed;
+    height: 7.5rem;
 }
 span{
     color: rgb(103, 48, 253);
@@ -29,6 +34,9 @@ span{
     padding-left: 3rem;
     background-color: rgb(1, 22, 40);
     color: white;
+    width: 100%;
+    height: 1.8rem;
+    position: fixed;top: 6.7rem;
 }
 li{
     display: inline;
@@ -38,7 +46,7 @@ li{
     transition: all .5s ease-in;
 }
 .main{
-    margin-top: 2rem;
+    margin-top: 1rem;
     margin-bottom: 7rem;
     height: auto;
     color: white;
@@ -64,6 +72,13 @@ li{
     font-size: 1.5rem;
     color: black;
 }
+.great-h2{
+    font-family: 'Martian Mono', monospace;
+    font-size: 2rem;
+    text-align: center;
+    padding: 5px;
+    margin: 10px;
+}
 .inp-box{
     padding: 1.5rem;
     display: flex;
@@ -82,15 +97,8 @@ li{
 .submit-box{
     display: flex;
     justify-content: center;
+    margin-bottom: 1.5rem;
 
-}
-.submit:hover{
-    box-shadow: 0px 1px 7px rgb(33, 184, 83);
-    text-shadow: 0px 1px 5px rgba(6, 119, 44, 0.896);
-    background-image: linear-gradient(to bottom right, rgb(33, 184, 83), rgba(16, 136, 56, 0.741));
-}
-.box:hover{
-    box-shadow: 0px 1px 4px rgba(43, 18, 124, 0.518);
 }
 
 .submit{
@@ -102,10 +110,9 @@ li{
     color: white;
     font-size: 1rem;
     font-family: 'Martian Mono', monospace;
-    transition: .1s ease-in-out;
+    transition: .1s ease;
 }
 .info-box{
-    margin-top: 1.5rem;
     margin-bottom: 1.5rem;
     padding: 2rem;
     display: flex;
@@ -120,13 +127,31 @@ p{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(1, 1, 24);
+    background-image: linear-gradient(to top, black,rgba(7, 5, 50, 0.995));
     color: white;
     height: 15vh;
     font-family: 'Martian Mono', monospace;
+    border-radius: 5px 5px 0px 0px;
 }
 
+/* hover & active styling */
+.submit:hover{
+    box-shadow: 0px 1px 7px rgb(33, 184, 83);
+    text-shadow: 0px 1px 5px rgba(6, 119, 44, 0.896);
+    background-image: linear-gradient(to bottom right, rgb(33, 184, 83), rgba(16, 136, 56, 0.741));
+}
+.box:hover{
+    box-shadow: 0px 1px 4px rgba(43, 18, 124, 0.518);
+}
+.submit:active{
+    scale: 0.95;
+    outline-style: solid;
+    outline-color: rgb(255, 255, 255);
+    outline-offset: 1px;
+    outline-width: 2px;
+}
 
+/* mediaQuery */
 @media(max-width:450px){
     .box{
         width: 20rem;
@@ -141,26 +166,68 @@ p{
     h2{
         font-size: 1.5rem;
     }
-    .footer-box{
+    .footer{
         padding-left: 1rem;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
+    }
+    .great-h2{
+        font-size: 1.15rem;
     }
 }
 @media(max-width:320px){
     .box{
         width: 15rem;
     }
+    .great-h2{
+        font-size: .9rem;
+    }
 }
 .box-shake{
     animation: shake 0.2s;
     animation-iteration-count: 2;
   }
-  
+
+/* animation */
 @keyframes shake {
     0% { transform: translateX(0) }
     25% { transform: translateX(10px) }
     50% { transform: translateX(-10px) }
     75% { transform: translateX(10px) }
     100% { transform: translateX(0) }
+  }
+
+/* scrollbar styling */
+::-webkit-scrollbar{
+    width: 10px;
+}
+::-webkit-scrollbar-track{
+    border-radius: 0px;
+    background-color: rgb(255, 255, 255);
+  }
+::-webkit-scrollbar-thumb {
+    background-color: gray;
+    border-radius: 10px;
+  }
+::-webkit-scrollbar-thumb:hover {
+    background: #a5a5a5; 
+  }
+
+/* writing text animation */
+.greatings-container{
+    display: flex;
+    justify-content: center;
+  }
+  
+  .great-h2 {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    animation: typing;
+    animation-duration: 4.5s;
+    animation-timing-function: steps(55, end);
+    animation-fill-mode: forwards;
+  }
+    
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
   }
