@@ -67,8 +67,10 @@ let httpStatusCodes = {
 window.addEventListener("keypress", function(e) {
     if (e.key === "Enter") {
         get_info();
+        check_for_inavlid();
     }
 })
+
 
         function get_info(){
             f = false;
@@ -389,14 +391,15 @@ window.addEventListener("keypress", function(e) {
                     var output = document.querySelector("p");
                     output.innerText= httpStatusCodes.err511
                     return f = true;
-                } 
-                check_for_inavlid()
+                }
+                
          }
+        
 
          function check_for_inavlid() {
             var output = document.querySelector("p");
-            output.innerText="Invalid Code"
             if (f===false){
+                output.innerText="Invalid Code"
                 var element = document.querySelector(".box-animation");
                 element.classList.add("box-shake");
                 set_time()
