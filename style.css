@@ -106,7 +106,7 @@ li{
     width: 10rem;
     border-radius: 5px;
     border: 0px;
-    background-color: rgb(13, 176, 68);
+    background-color: rgb(21, 193, 78);
     color: white;
     font-size: 1rem;
     font-family: 'Martian Mono', monospace;
@@ -122,6 +122,10 @@ li{
 p{
     text-align: center;
     color: rgb(8, 3, 23);
+    padding: .5rem;
+    background-color: rgba(43, 243, 109, 0.226);
+    border-radius: 10px;
+    border: 3px solid rgba(4, 164, 57, 0.212) ;
 }
 .footer-box{
     display: flex;
@@ -138,7 +142,7 @@ p{
 .submit:hover{
     box-shadow: 0px 1px 7px rgb(33, 184, 83);
     text-shadow: 0px 1px 5px rgba(6, 119, 44, 0.896);
-    background-image: linear-gradient(to bottom right, rgb(33, 184, 83), rgba(16, 136, 56, 0.741));
+    background-image: linear-gradient(to bottom right, rgb(33, 184, 83), rgba(20, 172, 71, 0.858));
 }
 .box:hover{
     box-shadow: 0px 1px 4px rgba(43, 18, 124, 0.518);
@@ -222,7 +226,7 @@ p{
     white-space: nowrap;
     width: 0;
     animation: typing;
-    animation-duration: 4.5s;
+    animation-duration: 3.5s;
     animation-timing-function: steps(55, end);
     animation-fill-mode: forwards;
   }
